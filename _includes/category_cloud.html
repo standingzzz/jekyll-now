@@ -1,0 +1,32 @@
+{% comment %}
+<!--
+- If category_names array is not passed in as argument,
+  - Create an empty array,
+  - Obtain a category name and push it to the array, and
+  - Sort the category names.
+- List categories as a category cloud.
+-->
+{% endcomment %}
+
+{% if include.category_names %}
+  {% assign category_names = include.category_names %}
+
+{% else %}
+  {% assign category_names = "" | split: "|"  %}
+
+  {% for posts_by_category in site.categories %}
+    {% assign category_names = category_names | push: posts_by_category.first %}
+  {% endfor %}
+
+  {% assign category_names = category_names | sort %}
+{% endif %}
+
+<ul class="category-cloud">
+  {% for category_name in category_names %}
+    <li>
+      <a href="{{ baseurl }}/categories#{{ category_name | slugize }}">
+        {{ category_name }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
