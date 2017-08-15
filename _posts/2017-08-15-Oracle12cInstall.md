@@ -3,6 +3,7 @@ layout: post
 title: Oracle12c Install to Centos
 categories: Tec
 tags: Oracle Database
+date: 2017-08-15
 ---
 
 ### JRE required for runInstaller.
