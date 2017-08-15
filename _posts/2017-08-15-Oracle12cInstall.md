@@ -6,7 +6,7 @@ title: Oracle12c Install to Centos
 ### JRE required for runInstaller.
 
 ```
-Sudo rpm -ivh jre-8u144-linux-x64.rpm
+sudo rpm -ivh jre-8u144-linux-x64.rpm
 ```
 - - -
 ### for garbled characters.
