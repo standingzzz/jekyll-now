@@ -6,9 +6,11 @@ Obtain time and tags that are associated with current page/post.
 
 {% if post %}
   {% assign date = post.date %}
+  {% assign categories = post.categories %}
   {% assign tags = post.tags %}
 {% else %}
   {% assign date = page.date %}
+  {% assign categories = post.categories %}
   {% assign tags = page.tags %}
 {% endif %}
 
@@ -24,6 +26,14 @@ Obtain time and tags that are associated with current page/post.
   Display all the tag names that link to a corresponding section of the Tags page.
   -->
   {% endcomment %}
+  <div
+    class="post-categories">
+    {% for tag in categories %}
+      <a href="{{ site.baseurl }}/categories#{{ category | slugize }}">
+        {{ category }}
+      </a>
+    {% endfor %}
+  </div>
   <div
     class="post-tags">
     {% for tag in tags %}
