@@ -1,0 +1,42 @@
+---
+layout: page
+title: Posts By Categories
+permalink: /categories
+---
+
+{% comment %}
+<!--
+- Create an empty array.
+- Obtain a tag name and push it to the array.
+- Sort the category names.
+- List categories as a category cloud.
+-->
+{% endcomment %}
+
+{% assign category_names = "" | split: "|"  %}
+
+{% for posts_by_category in site.categories %}
+  {% assign category_names = category_names | push: posts_by_category.first %}
+{% endfor %}
+
+{% assign category_names = category_names | sort %}
+
+{% include category_cloud.html category_names=category_names %}
+
+<hr>
+
+<section class="posts-by-categories">
+  {% for category_name in category_names %}
+    <div>
+      <h3 id="{{ category_name }}">
+        {{ category_name | capitalize | replace: "_", " " }}
+      </h3>
+
+      {% for post in site.categories[category_name] %}
+        <a href="{{ post.url | prepend: baseurl }}">
+          {{ post.title }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>
