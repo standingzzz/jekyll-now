@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create test data.
+title: Create test data
 categories: Tec
 tags: Oracle Database
 date: 2017-08-21
